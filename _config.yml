@@ -91,12 +91,12 @@ exclude_generator:
 ## Docs: http://hexo.io/docs/deployment.html
 #deploy:
 #  type: git
-#  repository: git@github.com:ykpsunny/ykpsunny.github.com.git
+#  repository: https://github.com/ykpsunny/sysy-blog.git
 #  branch: master
 
 deploy:
   type: git
-  repository: git@github.com:ykpsunny/ykpsunny.github.com.git
+  repository: https://github.com/ykpsunny/sysy-blog.git
   branch: master
 
 sitemap:

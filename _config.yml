@@ -97,7 +97,7 @@ exclude_generator:
 deploy:
   type: git
   repository: https://github.com/ykpsunny/sysy-blog.git
-  branch: proto
+  branch: master
 
 sitemap:
     path: sitemap.xml

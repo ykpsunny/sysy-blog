@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "31个js代码小技巧"
+title: "32个js代码小技巧"
 date: 2020-3-15 15:12
 tags: 
   - javascript
@@ -259,5 +259,13 @@ tags:
     isObjectEmpty({}) // true
     ```
 
-    
+32. **错误处理代码(有错自动搜索，手动滑稽)**
 
+    ```javascript
+    try{
+        // your code
+    }
+    catch (error) {
+        window.open(`https://stackoverflow.com/search?q=${String(error)}`)
+    }
+    ```

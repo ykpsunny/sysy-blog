@@ -223,6 +223,83 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-css-variable-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/20/css-variable-2/">CSS 变量(variable) -- 实战篇</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/20/css-variable-2/" class="archive-article-date">
+  	<time datetime="2020-03-20T13:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-网站换肤"><a href="#1-网站换肤" class="headerlink" title="1. 网站换肤"></a>1. 网站换肤</h4><p>1、实现网站换肤功能，一般最先想到的是用全局 class 控制样式切换<br>缺点：全局控制 CSS，在项目不大，换肤样式不多的情况下，还能勉强够用。但是换肤样式很多的话，代码会非常臃肿，不利于维护。<br>2、通过 js 来切换引入 CSS 样式的 href 属性值，来达到样式切换的目的。<br>缺点：使用 js 改变 href 属性会带来加载延迟(样式文件越大，加载越久)。<br>3、使用 js 修改 css 变量值来达到换肤效果。</p>
+<p>今天我们要说的就是第三种, 使用 js 修改 css 变量值来达到换肤效果</p>
+        
+          <a class="article-more-a" href="/2020/03/20/css-variable-2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">+ css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/20/css-variable-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-css-variable-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -322,11 +399,8 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/assets/blogImg/js-xiaojiqiao.jpg" alt="配图"></p>
-<ol>
-<li><p><strong>生成长度为 10 的随机 ID</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Math</span>.random().toString(<span class="number">36</span>).slice(<span class="number">2</span>) <span class="comment">// "z29mwr6neu"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>1、<strong>生成长度为 10 的随机 ID</strong></p>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Math</span>.random().toString(<span class="number">36</span>).slice(<span class="number">2</span>) <span class="comment">// "z29mwr6neu"</span></span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2020/03/15/js-daimapianduan/#more">more >></a>
         
@@ -467,11 +541,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">js-array</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
+                <a href="javascript:void(0)" class="js-tag color1">+ css</a>
               </li>
             
             <div class="clearfix"></div>

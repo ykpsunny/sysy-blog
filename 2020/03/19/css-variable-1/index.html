@@ -17,7 +17,7 @@
 <meta property="og:description" content="前言​    css 变量可以让你不使用任何预处理器 (less, sass, stylus)，不需要通过任何工具预处理，可以原生在浏览器中使用变量 一、变量的声明​    声明变量的时候，变量名前要加两根连字符 (–)。​123:root&amp;#123;    --bg-color: #f40;&amp;#125; ​    上面代码中，声明了一个css变量，你可能会问，为什么官方要选择两根连字符表示变量？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="//sysy.site/assets/blogImg/css-variable.png">
-<meta property="og:updated_time" content="2020-03-21T15:44:47.556Z">
+<meta property="og:updated_time" content="2020-03-22T15:01:09.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 变量(variable) -- 基础篇">
 <meta name="twitter:description" content="前言​    css 变量可以让你不使用任何预处理器 (less, sass, stylus)，不需要通过任何工具预处理，可以原生在浏览器中使用变量 一、变量的声明​    声明变量的时候，变量名前要加两根连字符 (–)。​123:root&amp;#123;    --bg-color: #f40;&amp;#125; ​    上面代码中，声明了一个css变量，你可能会问，为什么官方要选择两根连字符表示变量？">
@@ -177,7 +177,17 @@ var _hmt = _hmt || [];
 <h4 id="四、作用域"><a href="#四、作用域" class="headerlink" title="四、作用域"></a>四、作用域</h4><p>变量只在当前元素及其子元素中有效</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">--color</span>: <span class="selector-id">#f00</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.children</span>&#123;</span></span><br><span class="line">        color: var(--color);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.box</span>&#123;</span></span><br><span class="line">        color: var(--color); // 无效</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'parent'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'children'</span>&gt;</span>hello world !!!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'box'</span>&gt;</span>box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>此时只有 hello world !!! 变成了红色字体，而 box 中的元素还是黑色字体，由于这个原因一般把声明的变量放在根元素 <strong>:root</strong> 里面，以确保任何元素都可以使用它们。</p>
-<h4 id="五、兼容性"><a href="#五、兼容性" class="headerlink" title="五、兼容性"></a>五、兼容性</h4><p>目前现代浏览器都支持(IE 除外，毕竟微软都抛弃了 [手动狗头])</p>
+<h4 id="五、在-JS-中使用"><a href="#五、在-JS-中使用" class="headerlink" title="五、在 JS 中使用"></a>五、在 JS 中使用</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'box'</span>&gt;</span>box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>const box = document.getElementById(‘box’)</p>
+<ul>
+<li>读取变量：elem.style.getPropertyValue</li>
+<li>设置变量：elem.style.setProperty</li>
+<li>删除变量：elem.style.removeProperty</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置变量</span></span><br><span class="line">box.style.setProperty(<span class="string">'--color'</span>, <span class="string">'#f40'</span>)</span><br><span class="line"><span class="comment">// 读取变量</span></span><br><span class="line">box.style.getPropertyValue(<span class="string">'--color'</span>)</span><br><span class="line"><span class="comment">// 删除变量</span></span><br><span class="line">box.style.removeProperty(<span class="string">'--color'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="六、兼容性"><a href="#六、兼容性" class="headerlink" title="六、兼容性"></a>六、兼容性</h4><p>目前现代浏览器都支持(IE 除外，毕竟微软都抛弃了 [手动狗头])</p>
 <p><img src="/assets/blogImg/css-variable.png" alt="css变量兼容性"></p>
 
       
@@ -242,11 +252,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/03/21/js-arrayflatten/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/20/css-variable-2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JS 数组扁平化 (flatten)
+          CSS 变量(variable) -- 实战篇
         
       </div>
     </a>
@@ -365,11 +375,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">js-array</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
+                <a href="javascript:void(0)" class="js-tag color1">+ css</a>
               </li>
             
             <div class="clearfix"></div>

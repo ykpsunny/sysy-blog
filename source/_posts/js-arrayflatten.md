@@ -80,19 +80,12 @@ function flatten (arr) {
 console.log(flatten(array)) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
+#### 五、利用 JSON 对象上的方法实现
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+```javascript
+const flatten = arr => JSON.parse(`[${JSON.stringify(arr).replace(/\[|\]/g, '')}]`)
+console.log(flatten(array)) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+**缺点:** 由于是使用 JSON.stringify 方法，它会隐式的把非 **Boolean, Number, String, Object, Array, null** 类型的值转化成 null
 
 

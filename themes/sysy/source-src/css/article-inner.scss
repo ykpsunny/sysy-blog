@@ -44,7 +44,6 @@
 
 .article-inner h4 {
 	letter-spacing: 0.140625em;
-	text-transform: uppercase;
 }
 
 .article-inner h6 {
@@ -71,7 +70,7 @@
 
 .article-inner h1:first-child{
   margin-bottom: 10px;
-  display: inline;
+  display: inline-block;
 }
 .article-entry{
   line-height: 1.8em;

@@ -101,7 +101,24 @@ div{
 
 此时只有 hello world !!! 变成了红色字体，而 box 中的元素还是黑色字体，由于这个原因一般把声明的变量放在根元素 **:root** 里面，以确保任何元素都可以使用它们。
 
-#### 五、兼容性
+#### 五、在 JS 中使用
+```html
+<div id='box'>box</div>
+```
+> const box = document.getElementById('box')
++ 读取变量：elem.style.getPropertyValue
++ 设置变量：elem.style.setProperty
++ 删除变量：elem.style.removeProperty
+
+```javascript
+    // 设置变量
+    box.style.setProperty('--color', '#f40')
+    // 读取变量
+    box.style.getPropertyValue('--color')
+    // 删除变量
+    box.style.removeProperty('--color')
+```
+#### 六、兼容性
 
 目前现代浏览器都支持(IE 除外，毕竟微软都抛弃了 [手动狗头])
 

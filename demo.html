@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #loading{
+     display: flex; 
+     justify-content: center;
+     align-items: center;
+		 height: 100vh;
+		 background-color: #fff;
+    }
+    #loading .item{
+      margin: 0 10px;
+      height: 30px;
+      width: 20px;
+      background-color: #333;
+			border-radius: 5px;
+			animation: loading 1s linear var(--time) infinite;
+		}
+    @keyframes loading{
+      0%{
+        height: 30px;
+      }
+      50%{
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id='loading'></div>
+  <script>
+    let loading = document.getElementById('loading'),
+        fragment = document.createDocumentFragment()
+    for (let i = 0; i < 5; i ++) {
+      let div = document.createElement('div')
+			div.className = `item`
+			div.style.setProperty('--time', `${i * 100}ms`)
+      fragment.appendChild(div)
+    }
+    loading.appendChild(fragment)
+  </script>
+</body>
+</html>

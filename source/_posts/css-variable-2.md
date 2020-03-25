@@ -8,7 +8,7 @@ tags:
 
 ---
 
-#### 1. 网站换肤
+#### 一、 网站换肤
 
 1、实现网站换肤功能，一般最先想到的是用全局 class 控制样式切换
 缺点：全局控制 CSS，在项目不大，换肤样式不多的情况下，还能勉强够用。但是换肤样式很多的话，代码会非常臃肿，不利于维护。
@@ -19,6 +19,7 @@ tags:
 今天我们要说的就是第三种, 使用 js 修改 css 变量值来达到换肤效果
 
 <!--more-->
+![配图](https://cdn.pixabay.com/photo/2020/02/27/19/46/wood-4885659__340.jpg)
 
 ``` html
 <style>
@@ -63,7 +64,7 @@ function styleHandle(elem, style) {
 }
 ```
 
-#### 2. 条形加载 Loading
+#### 二、 条形加载 Loading
 
 ![loading bar](/assets/blogImg/loading-bar.gif)
 
@@ -179,4 +180,79 @@ function styleHandle(elem, style) {
 ```
 
 通过巧妙的使用 css 变量，代码大大的减少了，而且灵活性也变强了(某天说加载的时间差效果不明显，直接将 100 改成 150 即可，无需对每个 :nth-child(n) 进行修改)。
+
+#### 三、 悬浮跟踪效果
+
+其实思路也比较简单，先对按钮进行布局和着色，然后使用伪元素标记鼠标的位置，定义 `--x` 和 `--y` 表示伪元素在按钮里的坐标位置，通过 js 获取鼠标在按钮上的 offsetLeft 和 offsetTop 分别赋值给 `--x` 和 `--y` ，再对伪元素添加径向渐变的背景颜色。
+
+![hover-button](/assets/blogImg/hover-button.gif)
+
+第一步: 获取鼠标的位置，计算相对按钮的偏移位置，将坐标存到变量中
+
+``` javascript
+const btn = document.getElementById('btn')
+btn.addEventListener('mousemove', (e) => {
+    const {
+        offsetLeft,
+        offsetTop,
+        style
+    } = e.target
+    const x = e.pageX - offsetLeft,
+        y = e.pageY - offsetTop
+    style.setProperty('--x', `${x}px` )
+    style.setProperty('--y', `${y}px` )
+})
+```
+
+第二步：定义 `span` 元素的层级，渐变显示在文字上方，将伪元素 `after` 的 `width` 和 `height` 都默认设置为 0 (不显示)，当鼠标经过时改为 `300px` ， 并设置动画，在background 属性上应用径向渐变 `radial-gradient` ，使用。closest-side覆盖整个面。
+
+``` html
+  <style>
+      #btn {
+          width: 146px;
+          height: 46px;
+          line-height: 46px;
+          text-align: center;
+          border-radius: 10px;
+          font-size: 18px;
+          color: #fff;
+          background-color: #788cff;
+          font-weight: bold;
+          display: inline-block;
+          cursor: pointer;
+          user-select: none;
+          position: relative;
+          overflow: hidden;
+      }
+
+      #btn span {
+          position: relative;
+          z-index: 999;
+      }
+
+      #btn::after {
+          content: '';
+          position: absolute;
+          left: var(--x);
+          top: var(--y);
+          width: var(--size);
+          height: var(--size);
+          background: radial-gradient(#c47dde, transparent);
+          transform: translate(-50%, -50%);
+          /* 让伪元素中心跟随着鼠标点 */
+          transition: width .1s ease-in-out,
+                      height .1s ease-in-out;
+      }
+
+      #btn:hover::after {
+          --size: 300px;
+      }
+  </style>
+  <div id="btn">
+      <span>click me</span>
+  </div>
+```
+
+
+就这样，一个炫酷的按钮就大功告成了。
 

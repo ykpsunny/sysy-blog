@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="//sysy.site">
-  <title>CSS 变量(variable) -- 基础篇 | Sunny的博客</title>
+  <title>Tag: 工具 | Sunny的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言​    css 变量可以让你不使用任何预处理器 (less, sass, stylus)，不需要通过任何工具预处理，可以原生在浏览器中使用变量 一、变量的声明​    声明变量的时候，变量名前要加两根连字符 (–)。​123:root&amp;#123;    --bg-color: #f40;&amp;#125; ​    上面代码中，声明了一个css变量，你可能会问，为什么官方要选择两根连字符表示变量？">
-<meta name="keywords" content="css">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CSS 变量(variable) -- 基础篇">
-<meta property="og:url" content="//sysy.site/2020/03/19/css-variable-1/index.html">
+  <meta name="description" content="用于提升锻炼自己的博客">
+<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,编程,代码,开源,Developer,Programmer,Coder,html,css,css3,用户体验">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sunny的博客">
+<meta property="og:url" content="//sysy.site/tags/工具/index.html">
 <meta property="og:site_name" content="Sunny的博客">
-<meta property="og:description" content="前言​    css 变量可以让你不使用任何预处理器 (less, sass, stylus)，不需要通过任何工具预处理，可以原生在浏览器中使用变量 一、变量的声明​    声明变量的时候，变量名前要加两根连字符 (–)。​123:root&amp;#123;    --bg-color: #f40;&amp;#125; ​    上面代码中，声明了一个css变量，你可能会问，为什么官方要选择两根连字符表示变量？">
+<meta property="og:description" content="用于提升锻炼自己的博客">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://q7yhi2vue.bkt.clouddn.com/image/css-variable.png">
-<meta property="og:updated_time" content="2020-03-29T13:50:09.253Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 变量(variable) -- 基础篇">
-<meta name="twitter:description" content="前言​    css 变量可以让你不使用任何预处理器 (less, sass, stylus)，不需要通过任何工具预处理，可以原生在浏览器中使用变量 一、变量的声明​    声明变量的时候，变量名前要加两根连字符 (–)。​123:root&amp;#123;    --bg-color: #f40;&amp;#125; ​    上面代码中，声明了一个css变量，你可能会问，为什么官方要选择两根连字符表示变量？">
-<meta name="twitter:image" content="http://q7yhi2vue.bkt.clouddn.com/image/css-variable.png">
+<meta name="twitter:title" content="Sunny的博客">
+<meta name="twitter:description" content="用于提升锻炼自己的博客">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -133,168 +130,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-css-variable-1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      CSS 变量(variable) -- 基础篇
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/03/28/web-ui-utils/" class="archive-article-date">
+  	<time datetime="2020-03-28T05:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/03/28/web-ui-utils/">前端组件库及工具集合</a>
     </h1>
   
 
-        
-        <a href="/2020/03/19/css-variable-1/" class="archive-article-date">
-  	<time datetime="2020-03-19T13:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>​    css 变量可以让你不使用任何预处理器 (less, sass, stylus)，不需要通过任何工具预处理，可以原生在浏览器中使用变量</p>
-<h4 id="一、变量的声明"><a href="#一、变量的声明" class="headerlink" title="一、变量的声明"></a>一、变量的声明</h4><p>​    声明变量的时候，变量名前要加两根连字符 <strong>(–)</strong>。<br>​<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span>&#123;</span><br><span class="line">    <span class="attribute">--bg-color</span>: <span class="number">#f40</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>​    上面代码中，声明了一个css变量，你可能会问，为什么官方要选择两根连字符表示变量？因为 $bg-color 被 sass 用掉了，@bg-color 被 less 用掉了，所以官方为了不产生冲突，css 声明变量改用两根连字符了。</p>
-<a id="more"></a>
-<h4 id="二、变量的使用"><a href="#二、变量的使用" class="headerlink" title="二、变量的使用"></a>二、变量的使用</h4><p>​    css 中使用 <strong>var</strong> 函数用于读取变量 (没错，就是 js 中声明变量的那个 var，不过，此 var (css) 非比 var (js) )。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span>&#123;</span><br><span class="line">    <span class="attribute">--bg-color</span>: <span class="number">#f40</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">var</span>(--bg-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>var</strong> 函数具有两个参数，第一个参数表示使用的变量，第二个参数表示默认值，那么就存在以下两种使用情况:</p>
-<ol>
-<li>两个参数都传递，如果变量存在，则正确引用，如果使用的变量不存在，则会使用默认值。</li>
-<li>只传递第一个参数，且变量存在，则正确使用变量， 如果变量不存在，则默认使用失败。</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    color: var(--color, #ff0); // 变量不存在，则使用默认值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注意 </strong>: 变量只能用作属性值，不能用作属性名。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">--font</span>: font-size;</span><br><span class="line">    var(--font): 18px; // 无效</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="三、变量值的类型"><a href="#三、变量值的类型" class="headerlink" title="三、变量值的类型"></a>三、变量值的类型</h4><ol>
-<li><p>可以是字符串</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">--content</span>: <span class="string">'hello world !!!'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">    content: var(--content); // 允许</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以是数字，但是不能与单位直接连用，需要借助 <strong>calc</strong> 计算函数</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">--num</span>: <span class="number">10</span>;</span><br><span class="line">    margin: var(--num)px; // 错误</span><br><span class="line">    margin: calc(var(--num) * 1px); // 正确</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="四、作用域"><a href="#四、作用域" class="headerlink" title="四、作用域"></a>四、作用域</h4><p>变量只在当前元素及其子元素中有效</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">--color</span>: <span class="selector-id">#f00</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.children</span>&#123;</span></span><br><span class="line">        color: var(--color);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.box</span>&#123;</span></span><br><span class="line">        color: var(--color); // 无效</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'parent'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'children'</span>&gt;</span>hello world !!!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'box'</span>&gt;</span>box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>此时只有 hello world !!! 变成了红色字体，而 box 中的元素还是黑色字体，由于这个原因一般把声明的变量放在根元素 <strong>:root</strong> 里面，以确保任何元素都可以使用它们。</p>
-<h4 id="五、在-JS-中使用"><a href="#五、在-JS-中使用" class="headerlink" title="五、在 JS 中使用"></a>五、在 JS 中使用</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'box'</span>&gt;</span>box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>const box = document.getElementById(‘box’)</p>
-<ul>
-<li>读取变量：elem.style.getPropertyValue</li>
-<li>设置变量：elem.style.setProperty</li>
-<li>删除变量：elem.style.removeProperty</li>
-</ul>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置变量</span></span><br><span class="line">box.style.setProperty(<span class="string">'--color'</span>, <span class="string">'#f40'</span>)</span><br><span class="line"><span class="comment">// 读取变量</span></span><br><span class="line">box.style.getPropertyValue(<span class="string">'--color'</span>)</span><br><span class="line"><span class="comment">// 删除变量</span></span><br><span class="line">box.style.removeProperty(<span class="string">'--color'</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="六、兼容性"><a href="#六、兼容性" class="headerlink" title="六、兼容性"></a>六、兼容性</h4><p>目前现代浏览器都支持(IE 除外，毕竟微软都抛弃了 [手动狗头])</p>
-<p><img src="http://q7yhi2vue.bkt.clouddn.com/image/css-variable.png" alt="css变量兼容性"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/20/css-variable-2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CSS 变量(variable) -- 实战篇
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/03/15/js-daimapianduan/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">32个js代码小技巧</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -312,9 +201,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

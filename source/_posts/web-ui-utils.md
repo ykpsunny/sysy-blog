@@ -117,7 +117,7 @@ tags:
 
     ![react-beautiful-dnd]()
 
-  - #### Animate.css
+  - #### Animate
     + 官网地址: https://daneden.github.io/animate.css
     + GitHub 地址: https://github.com/daneden/animate.css
 
@@ -125,7 +125,7 @@ tags:
 
     ![animate]()
 
-  - #### lax.js
+  - #### lax
     + GitHub 地址: https://github.com/alexfoxy/laxxx
     
     > 视差滚动实现，搭配 Animate.css 当页面滚动时，可以呈现各种花里胡哨的效果
@@ -179,3 +179,10 @@ tags:
 
     ![can-i-use]()
 
+  - #### Mock
+    + 官网地址: http://mockjs.com
+    + GitHub 地址: https://github.com/nuysoft/Mock
+
+    > 模拟后端数据，做前后端分离，让前端独立于后端进行开发，不需要修改既有代码，就可以拦截 Ajax 请求，返回模拟的响应数据。而且数据类型丰富，使用也简单。
+
+    ![mock]()

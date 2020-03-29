@@ -8,7 +8,7 @@ tags:
 ---
 
 
-![配图](https://cdn.pixabay.com/photo/2020/03/07/09/18/landscape-4909219__340.jpg)
+![配图](http://q7yhi2vue.bkt.clouddn.com/image/landscape.jpg)
 
 1、**生成长度为 10 的随机 ID**
 

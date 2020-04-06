@@ -132,6 +132,152 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-immer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/06/immer/">immer的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/06/immer/" class="archive-article-date">
+  	<time datetime="2020-04-06T06:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JS 里面的变量类型可以分为 <code>基本类型</code> 和 <code>引用类型</code> ，在 JS 中使用引用类型数据时需要格外的注意引用问题，不然，一不小心就踩坑了！！！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">b = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(a === b) <span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<p>上面的 <code>**a**</code> 跟 <code>**b**</code> 会相对吗，因为是基本型数据，所以肯定是 <strong>false</strong></p>
+<p>那我们改成引用类型呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj1 = obj</span><br><span class="line">obj1.a = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a) <span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<p>此时应该打印多少？10 还是 5，答案是 5，why？我刚刚明明修改的是 obj1，为什么会影响到 obj 呢，因为对象赋值本质上是把地址赋值给 obj1，并不是把 obj 中的内容赋值给 obj1，这样做是为了节约内存，但是在实际的生产过程当中这样的设计会引发无穷无尽的问题，所以我们要解决这种相互引用的问题。</p>
+<p>为了解决互相引用的问题ES6提供了 Object.assign，展开运算符 <code>...</code> </p>
+<p><strong>Object.assign 与 <code>...</code> 运算符</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: <span class="string">'b'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  ...obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// let obj1 = Object.assign(&#123;&#125;, obj)</span></span><br><span class="line">obj1.a.b = <span class="number">10</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a.b) <span class="comment">// ？</span></span><br></pre></td></tr></table></figure>
+<p>此处打印的是 10，因为 <code>...</code> 或 Object.assign 只做了浅层拷贝，对于深层的内容本质上还是相同的引用，所以修改 obj1.a.b 还是会影响到 obj，所以只能深层拷贝，彻底解决引用问题</p>
+<p><strong>深拷贝 — deepClone</strong></p>
+<p>  深拷贝，顾名思义就是，在遍历赋值的过程中，如果遇到了引用类型的值，就递归创建一个新的数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> deepClone = <span class="function">(<span class="params">origin</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> target = <span class="built_in">Array</span>.isArray(origin) ? [] : &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> origin) &#123;</span><br><span class="line">    <span class="keyword">if</span> (origin.hasOwnProperty(prop)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (origin[prop] !== <span class="literal">null</span> &amp;&amp; <span class="keyword">typeof</span> origin[prop] === <span class="string">'object'</span>) &#123;</span><br><span class="line">        target[prop] = deepClone(origin[prop])</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        target[prop] = origin[prop]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> target</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: <span class="string">'b'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj1 = deepClone(obj)</span><br><span class="line">obj1.a.b = <span class="number">10</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a.b) <span class="comment">// 'b'</span></span><br></pre></td></tr></table></figure>
+<p>上面的这个 deepClone 可以满足简单的需求，但是真正在生产工作中，我们需要考虑非常多的因素。</p>
+<p>比如：对象之间的循环引用问题，值为 Symbol 类型的数据时，原型链上的内容如何处理，等一系列问题。</p>
+<p>因为有太多不确定因素，所以在真正的生产环境中，还是推荐大家使用开源工具库 <strong>loadsh</strong> 中的 <code>cloneDeep</code> 。</p>
+<p>深拷贝的问题在于给每一个数据都做了拷贝，会浪费内存，所以还是要借助 immer 或 immutable-js 来做性能优化。</p>
+<p><strong>immer</strong></p>
+<p>immer 是一个以 ES6 中 Proxy 为核心的 immutable 库，几乎以最小的成本 (压缩之后仅 3KB) 实现了 js 的不可变数据结构，简单易用 (API 不多，而且使用原生的数据类型)，满足了我们对JS不可变数据结构的需求。</p>
+<p>GitHub 地址: <a href="https://immerjs.github.io/immer" target="_blank" rel="noopener">https://immerjs.github.io/immer</a></p>
+<p>安装:<br>  yarn: yarn add immer –save<br>  npm: npm i immer –save</p>
+<p>使用:</p>
+<ul>
+<li>用法一:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> produce <span class="keyword">from</span> <span class="string">'immer'</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: <span class="string">'b'</span></span><br><span class="line">  &#125;</span><br><span class="line">  c: &#123;</span><br><span class="line">    text: <span class="string">'c'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj1 = produce(obj, (draftState) =&gt; &#123;</span><br><span class="line">  draftState.a.b = <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.a.b) <span class="comment">// 'b'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1.a.b) <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.c === obj1.c) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>  通过上面的用法我们能发现，所有具有副作用的逻辑都可以放进 produce 的第二个参数的函数内部进行处理。在这个函数内部对数据进行任何操作，都不会对原对象产生任何影响。<br>  在不影响的同时，未修改的部分，还保持着相应的关联。</p>
+<ul>
+<li>用法二:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> produce <span class="keyword">from</span> <span class="string">'immer'</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: <span class="string">'b'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> producer = produce(<span class="function"><span class="params">draftState</span> =&gt;</span> &#123;</span><br><span class="line">  draftState.a.b = <span class="number">10</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj1 = producer(obj)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.a.b) <span class="comment">// 'b'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1.a.b) <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.c === obj1.c) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>  先传入一个要操作对象的函数，利用高阶函数的特点，返回一个生产者，然后传入需要修改的对象即可。</p>
+<p><strong>在 React 中使用</strong></p>
+<p>有如下数据:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.state = &#123;</span><br><span class="line">  userList: [&#123;</span><br><span class="line">      id: <span class="number">0</span>,</span><br><span class="line">      name: <span class="string">"zs"</span>,</span><br><span class="line">      age: <span class="number">18</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="number">1</span>,</span><br><span class="line">      name: <span class="string">"ls"</span>,</span><br><span class="line">      age: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需求：给 userList 的第最后一个用户年龄加一岁</p>
+<p>不使用 immer 实现:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;</span><br><span class="line">  userList</span><br><span class="line">&#125; = <span class="keyword">this</span>.state</span><br><span class="line"><span class="keyword">let</span> users = userList.slice(),</span><br><span class="line">  lastIndex = users.length - <span class="number">1</span></span><br><span class="line">users[lastIndex].age++</span><br><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">  userList: users</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用 immer 之后:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setState(produce(<span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> lastIndex = state.userList.length - <span class="number">1</span></span><br><span class="line">  state.userList[lastIndex].age++</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+<p>是不是感觉代码量瞬间少了很多，阅读起来舒服了很多，而且更易于阅读了。</p>
+<p><strong>React Hooks 中使用</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [data, setData] = useState(&#123;</span><br><span class="line">  a: <span class="string">'a'</span>,</span><br><span class="line">  b: <span class="string">'b'</span>,</span><br><span class="line">  c: &#123;</span><br><span class="line">    d: <span class="string">'d'</span>,</span><br><span class="line">    f: <span class="string">'f'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>需求: 把对象 c 里的 d 的值改为 10</p>
+<p>不使用 immer 实现:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setData(<span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    ...state,</span><br><span class="line">    c: &#123;</span><br><span class="line">      ...state.c,</span><br><span class="line">      d: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用 immer 之后:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setData(</span><br><span class="line">  produce(<span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">    state.c.d = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> state;</span><br><span class="line">  &#125;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>immer + React Hooks 使用起来真的很顺手，而且更易于阅读，目前我就一直在用。</p>
+<p><strong>React reducer 中使用</strong></p>
+<p>不使用 immer:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'ADD'</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        count:</span><br><span class="line">          state.count++</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'SUB'</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        count:</span><br><span class="line">          state.count--</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 immer 之后:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reducer = produce(<span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'ADD'</span>:</span><br><span class="line">      state.count++</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'SUB'</span>:</span><br><span class="line">      state.count--</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>immer 原理解析</strong></p>
+<p>immer 源码中，使用了一个 ES6 的新特性 Proxy 对象。Proxy 对象拦截某些操作并实现自定义行为。</p>
+<p><strong>immer 中的proxy</strong></p>
+<p>immer 的做法就是在内部维护一份 state，劫持所有操作，内部来判断是否有变化从而最终决定如何返回。下面这个例子就是一个构造函数，如果将它的实例传入 Proxy 对象作为第一个参数，就能够后面的处理对象中使用其中的方法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Store</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(state) &#123;</span><br><span class="line">    <span class="keyword">this</span>.modified = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.source = state</span><br><span class="line">    <span class="keyword">this</span>.copy = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span>(key) &#123;</span><br><span class="line">    <span class="keyword">return</span> !<span class="keyword">this</span>.modified ?</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.source[key]: <span class="keyword">this</span>.copy[key]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">set</span>(key, value) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.modified) &#123;</span><br><span class="line">      <span class="keyword">this</span>.modifing()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.copy[key] = value</span><br><span class="line">  &#125;</span><br><span class="line">  modifing() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.modified) <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">this</span>.modified = <span class="literal">true</span></span><br><span class="line">    <span class="comment">// 使用解构实现一层 immutable</span></span><br><span class="line">    <span class="keyword">this</span>.copy = <span class="built_in">Array</span>.isArray(<span class="keyword">this</span>.source) ? [...this.source] : &#123;</span><br><span class="line">      ...this.source</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这个 Store 构造函数相比源代码省略了很多判断的部分。实例上面有 modified，source，copy 三个属性，有 get，set，modifing 三个方法。modified 作为内置的 flag，判断如何进行设置和返回。</p>
+<p>里面最关键的就应该是 modifing 这个函数，如果触发了 setter 并且之前没有改动过的话，就会手动将 modified 这个 flag 设置为 true，并且使用解构实现一层 immutable。</p>
+<p>对于 Proxy 的第二个参数，在简版的实现中，我们只是简单做一层转发，任何对元素的读取和写入都转发到 store 实例内部方法去处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PROXY_FLAG = <span class="string">'SYMBOL_PROXY_FLAG'</span></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="keyword">get</span>(target, key) &#123;</span><br><span class="line">    <span class="comment">// 如果遇到了这个 flag 我们直接返回我们操作的 target</span></span><br><span class="line">    <span class="keyword">return</span> key === PROXY_FLAG ? target : target.get(key)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>(target, key, value) &#123;</span><br><span class="line">    <span class="keyword">return</span> target.set(key, value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里在 getter 里面加一个 flag 的目的就在于将来从 proxy 对象中获取 store 实例更加方便。</p>
+<p>最终我们能够完成这个 produce 函数，创建 store 实例后创建 proxy 实例。然后将创建的 proxy 实例传入第二个函数中去。这样无论在内部做怎样有副作用的事情，最终都会在 store 实例内部将它解决。最终得到了修改之后的 proxy 对象，而 proxy 对象内部已经维护了两份 state ，通过判断 modified 的值来确定究竟返回哪一份。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">produce</span>(<span class="params">state, producer</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> store = <span class="keyword">new</span> Store(state)</span><br><span class="line">  <span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(store, handler)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 执行我们传入的 producer 函数，我们实际操作的都是 proxy 实例，所有有副作用的操作都会在 proxy 内部进行判断，是否最终要对 store 进行改动。</span></span><br><span class="line">  producer(proxy)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 处理完成之后，通过 flag 拿到 store 实例</span></span><br><span class="line">  <span class="keyword">const</span> newState = proxy[PROXY_FLAG]</span><br><span class="line">  <span class="keyword">return</span> newState.modified ? newState.copy : newState.source</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，一个分割成 Store 构造函数，handler 处理对象和 produce 处理 state 这三个模块的最简版就完成了，将它们组合起来就是一个最最最 tiny 版的 immer ，里面去除了很多不必要的校验和冗余的变量。但真正的 immer 内部也有其他的功能，例如上面提到的深层嵌套对象的结构化共享等等。</p>
+<p>当然，Proxy 作为一个新的 API，并不是所有环境都支持，Proxy 也无法 polyfill，所以 immer 在不支持 Proxy 的环境中，使用 Object.defineProperty 来进行一个兼容。</p>
+<p>参考资料: </p>
+<ul>
+<li><a href="https://juejin.im/post/5e83e532f265da47e02a6d5a" target="_blank" rel="noopener">immer.js: 也许更适合你的immutable js库</a></li>
+<li><a href="https://github.com/immerjs/immer/tree/master/docs" target="_blank" rel="noopener">官方文档</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">+ immer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/06/immer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-tuchuang" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -785,23 +931,11 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">+ css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">js-array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,11 +943,27 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">js-array</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">+ immer</a>
               </li>
             
             <div class="clearfix"></div>

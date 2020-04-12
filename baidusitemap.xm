@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>//sysy.site/2020/04/12/algorithm-1/</loc>
+    <lastmod>2020-04-12</lastmod>
+  </url>  <url>
     <loc>//sysy.site/2020/03/29/markdown-yufa/</loc>
     <lastmod>2020-04-12</lastmod>
   </url>  <url>
     <loc>//sysy.site/2020/04/06/immer/</loc>
-    <lastmod>2020-04-12</lastmod>
-  </url>  <url>
-    <loc>//sysy.site/2020/04/12/algorithm-1/</loc>
     <lastmod>2020-04-12</lastmod>
   </url>  <url>
     <loc>//sysy.site/2020/03/28/web-ui-utils/</loc>

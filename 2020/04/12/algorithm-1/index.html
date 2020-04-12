@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="//sysy.site">
-  <title>两数之和与洗牌 | Sunny的博客</title>
+  <title>两数之和、洗牌、数组中的第K个最大元素 | Sunny的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、两数之和给定一个整数数组 mums 和一个目标值 target , 请你在该数组中找出和为目标值的那两个整数, 并返回他们的数组下标。 可以假设每种入只会对应一个答案。 示例: 给定 nums = [1, 3, 5, 6, 11], target = 7  因为nums[0] + nums[3] = 1 + 6 = 7所以返回[0, 3]">
+  <meta name="description" content="1、两数之和给定一个整数数组 nums 和一个目标值 target , 请你在该数组中找出和为目标值的那两个整数, 并返回他们的数组下标。 可以假设每种入只会对应一个答案。 示例: 给定 nums = [1, 3, 5, 6, 11], target = 7  因为nums[0] + nums[3] = 1 + 6 = 7所以返回[0, 3]">
 <meta name="keywords" content="+ 算法题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="两数之和与洗牌">
+<meta property="og:title" content="两数之和、洗牌、数组中的第K个最大元素">
 <meta property="og:url" content="//sysy.site/2020/04/12/algorithm-1/index.html">
 <meta property="og:site_name" content="Sunny的博客">
-<meta property="og:description" content="1、两数之和给定一个整数数组 mums 和一个目标值 target , 请你在该数组中找出和为目标值的那两个整数, 并返回他们的数组下标。 可以假设每种入只会对应一个答案。 示例: 给定 nums = [1, 3, 5, 6, 11], target = 7  因为nums[0] + nums[3] = 1 + 6 = 7所以返回[0, 3]">
+<meta property="og:description" content="1、两数之和给定一个整数数组 nums 和一个目标值 target , 请你在该数组中找出和为目标值的那两个整数, 并返回他们的数组下标。 可以假设每种入只会对应一个答案。 示例: 给定 nums = [1, 3, 5, 6, 11], target = 7  因为nums[0] + nums[3] = 1 + 6 = 7所以返回[0, 3]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-12T07:36:03.203Z">
+<meta property="og:updated_time" content="2020-04-12T11:53:28.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="两数之和与洗牌">
-<meta name="twitter:description" content="1、两数之和给定一个整数数组 mums 和一个目标值 target , 请你在该数组中找出和为目标值的那两个整数, 并返回他们的数组下标。 可以假设每种入只会对应一个答案。 示例: 给定 nums = [1, 3, 5, 6, 11], target = 7  因为nums[0] + nums[3] = 1 + 6 = 7所以返回[0, 3]">
+<meta name="twitter:title" content="两数之和、洗牌、数组中的第K个最大元素">
+<meta name="twitter:description" content="1、两数之和给定一个整数数组 nums 和一个目标值 target , 请你在该数组中找出和为目标值的那两个整数, 并返回他们的数组下标。 可以假设每种入只会对应一个答案。 示例: 给定 nums = [1, 3, 5, 6, 11], target = 7  因为nums[0] + nums[3] = 1 + 6 = 7所以返回[0, 3]">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -138,7 +138,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      两数之和与洗牌
+      两数之和、洗牌、数组中的第K个最大元素
     </h1>
   
 
@@ -151,7 +151,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1、两数之和"><a href="#1、两数之和" class="headerlink" title="1、两数之和"></a>1、两数之和</h4><p>给定一个整数数组 <code>mums</code> 和一个目标值 <code>target</code> , 请你在该数组中找出和为目标值的那两个整数, 并返回他们的数组下标。</p>
+        <h4 id="1、两数之和"><a href="#1、两数之和" class="headerlink" title="1、两数之和"></a>1、两数之和</h4><p>给定一个整数数组 <code>nums</code> 和一个目标值 <code>target</code> , 请你在该数组中找出和为目标值的那两个整数, 并返回他们的数组下标。</p>
 <p>可以假设每种入只会对应一个答案。</p>
 <p><strong>示例:</strong></p>
 <p>给定 nums = [1, 3, 5, 6, 11], target = 7 </p>
@@ -159,24 +159,51 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findSumIndex</span>(<span class="params">arr, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i] + arr[j] === target) &#123;</span><br><span class="line">        <span class="keyword">return</span> [i, j]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">findSumIndex([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">11</span>], <span class="number">7</span>) <span class="comment">// [0, 3]</span></span><br></pre></td></tr></table></figure>
 <h4 id="2、洗牌算法"><a href="#2、洗牌算法" class="headerlink" title="2、洗牌算法"></a>2、洗牌算法</h4><ul>
-<li>交换打乱<br>其基本思想就是从原始数组中随机取一个之前没取过的数字与最后一个数字交换位置</li>
+<li><p>交换打乱</p>
+<p>其基本思想就是从原始数组中随机取一个之前没取过的数字与最后一个数字交换位置</p>
+</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> newArr = arr.slice()</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = newArr.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">const</span> rmdIndex = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * i) <span class="comment">// 随机取一个下标</span></span><br><span class="line">    <span class="comment">// 两数交换</span></span><br><span class="line">    <span class="keyword">const</span> temp = newArr[i]</span><br><span class="line">    newArr[i] = newArr[rmdIndex]</span><br><span class="line">    newArr[rmdIndex] = temp</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr</span><br><span class="line">&#125;</span><br><span class="line">shuffle([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]) <span class="comment">// [7, 4, 2, 1, 8, 5, 6, 3]</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>随机打乱<br>利用数组 <code>sort</code> 方法的函数参数特性<br>参数为函数时:</p>
+<li><p>随机打乱</p>
+<p>利用数组 <code>sort</code> 方法的函数参数特性<br>参数为函数时:</p>
 <ol>
 <li>可以有参数（两个参数排序），也可以没有参数（乱序）</li>
-<li><p>看返回值</p>
-<ul>
-<li>当返回值为负数时，那么前面的数放在前面</li>
-<li>当返回值为正数时，那么后面的数放在前面</li>
-<li>为0时，不动</li>
-</ul>
-</li>
+<li>看返回值</li>
 </ol>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">arr.sort(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>) <span class="comment">// [2, 7, 5, 1, 8, 3, 6, 4]</span></span><br></pre></td></tr></table></figure>
+<pre><code>- 当返回值为负数时，那么前面的数放在前面
+- 当返回值为正数时，那么后面的数放在前面
+- 为0时，不动
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">arr.sort(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>) <span class="comment">// [2, 7, 5, 1, 8, 3, 6, 4]</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、数组中的第K个最大元素"><a href="#3、数组中的第K个最大元素" class="headerlink" title="3、数组中的第K个最大元素"></a>3、数组中的第K个最大元素</h4><p>  在未排序的数组中找到第 <code>K</code> 个最大的元素。<br>  注意: 需要找到是数组排序后的第 <code>K</code> 个最大的元素，而不是第 K 个不同的元素。</p>
+<p>  示例 1:</p>
+<pre><code>输入: [2, 3, 1, 4, 5] 和 k = 3
+输出: 3
+</code></pre><p>  示例 2:</p>
+<pre><code>输入: [3, 2, 3, 4, 1, 4, 5, 6, 7, 6] 和 k = 3
+输出: 6
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">6</span>],</span><br><span class="line">  k = <span class="number">3</span></span><br><span class="line"><span class="comment">// 方法一</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> baseItem = arr.splice(<span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>), <span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">const</span> left = [],</span><br><span class="line">    right = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line">    baseItem &gt; arr[i] ? left.push(arr[i]) : right.push(arr[i])</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> quickSort(right).concat(baseItem, quickSort(left))</span><br><span class="line">&#125;</span><br><span class="line">quickSort()[k - <span class="number">1</span>] <span class="comment">// 6</span></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b - a)[k - <span class="number">1</span>] <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p>注意：给定 n 是一个正整数。</p>
+<p>示例 1:</p>
+<p>  输入： 2<br>  输出： 2<br>  解释： 有两种方法可以爬到楼顶。</p>
+<ol>
+<li>1 + 1</li>
+<li>2</li>
+</ol>
+<p>示例 2:</p>
+<p>  输入： 4<br>  输出： 5<br>  解释： 有三种方法可以爬到楼顶。</p>
+<ol>
+<li>1 + 1 + 1 + 1</li>
+<li>1 + 1 + 2</li>
+<li>1 + 2 + 1</li>
+<li>2 + 1 + 1</li>
+<li>2 + 2</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">climbStairs</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">4</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    arr[i] = arr[i - <span class="number">1</span>] + arr[i - <span class="number">2</span>]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr[n]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 递归法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">climbStairs</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> climbStairs(n - <span class="number">1</span>) + climbStairs(n - <span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line">climbStairs(<span class="number">4</span>) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -350,10 +377,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">+ css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -370,15 +393,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">+ Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">+ Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">+ css</a>
               </li>
              
               <li class="article-tag-list-item">

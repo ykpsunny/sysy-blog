@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Sunny的博客">
 <meta property="og:description" content="JS 里面的变量类型可以分为 基本类型 和 引用类型 ，在 JS 中使用引用类型数据时需要格外的注意引用问题，不然，一不小心就踩坑了！！！ 1234let a = 10let b = ab = 5console.log(a === b) // ? 上面的 **a** 跟 **b** 会相对吗，因为是基本型数据，所以肯定是 false 那我们改成引用类型呢？ 123456let obj = &amp;#12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-06T15:31:34.118Z">
+<meta property="og:updated_time" content="2020-04-12T07:36:03.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="immer的使用">
 <meta name="twitter:description" content="JS 里面的变量类型可以分为 基本类型 和 引用类型 ，在 JS 中使用引用类型数据时需要格外的注意引用问题，不然，一不小心就踩坑了！！！ 1234let a = 10let b = ab = 5console.log(a === b) // ? 上面的 **a** 跟 **b** 会相对吗，因为是基本型数据，所以肯定是 false 那我们改成引用类型呢？ 123456let obj = &amp;#12">
@@ -158,6 +158,7 @@ var _hmt = _hmt || [];
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj1 = obj</span><br><span class="line">obj1.a = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a) <span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
 <p>此时应该打印多少？10 还是 5，答案是 5，why？我刚刚明明修改的是 obj1，为什么会影响到 obj 呢，因为对象赋值本质上是把地址赋值给 obj1，并不是把 obj 中的内容赋值给 obj1，这样做是为了节约内存，但是在实际的生产过程当中这样的设计会引发无穷无尽的问题，所以我们要解决这种相互引用的问题。</p>
 <p>为了解决互相引用的问题ES6提供了 Object.assign，展开运算符 <code>...</code> </p>
+<a id="more"></a>
 <p><strong>Object.assign 与 <code>...</code> 运算符</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: <span class="string">'b'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  ...obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// let obj1 = Object.assign(&#123;&#125;, obj)</span></span><br><span class="line">obj1.a.b = <span class="number">10</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a.b) <span class="comment">// ？</span></span><br></pre></td></tr></table></figure>
 <p>此处打印的是 10，因为 <code>...</code> 或 Object.assign 只做了浅层拷贝，对于深层的内容本质上还是相同的引用，所以修改 obj1.a.b 还是会影响到 obj，所以只能深层拷贝，彻底解决引用问题</p>
@@ -287,6 +288,15 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/2020/04/12/algorithm-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          两数之和与洗牌
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/03/29/tuchuang/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Markdown图片插入</div>
@@ -393,7 +403,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">+ css</a>
+                <a href="javascript:void(0)" class="js-tag color1">+ 算法题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -401,7 +411,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">+ css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">js-array</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -413,15 +431,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">js-array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://q7yhi2vue.bkt.clouddn.com/image/md-liuchengtu.png">
 <meta property="og:image" content="https://www.baidu.com/img/bd_logo1.png?qua=high">
 <meta property="og:image" content="https://www.baidu.com/img/bd_logo1.png?qua=high">
-<meta property="og:updated_time" content="2020-03-29T13:50:09.262Z">
+<meta property="og:updated_time" content="2020-04-12T07:36:03.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速入门 Markdown 语法">
 <meta name="twitter:description" content="前言 Markdown 是一种轻量级标记语言，它使人们使用纯文本格式编写文档，不需要跟 HTML 一样关注标签使用，只需要专注写文档即可，本文就带大家快速入门 Markdown。  在开始之间，首先推荐几个编写 markdown 语法的工具，毕竟古人说的好，预先善其事，必先利其器。有一款出色的编辑器还是能让人事半功倍。 1、Typora  下载地址: https://www.typora.io">
@@ -183,22 +183,30 @@ var _hmt = _hmt || [];
 </li>
 <li><p><strong>无序列表</strong><br>在文字前加上 <code>-</code> 或 <code>+</code> 即可</p>
 </li>
-</ul>
-<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 有序列表 --&gt;</span><br><span class="line"></span><br><span class="line">  1. <span class="string">list1</span></span><br><span class="line"><span class="string"> </span> 2. <span class="string">list2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;</span>!-- 无序列表 --&gt;</span><br><span class="line"></span><br><span class="line">  + <span class="built_in">list-1</span></span><br><span class="line"><span class="built_in"></span>    - <span class="built_in">list-1-1</span></span><br><span class="line"><span class="built_in"></span>    - <span class="built_in">list-1-2</span></span><br><span class="line"><span class="built_in"></span>  + <span class="built_in">list-2</span></span><br><span class="line"><span class="built_in"></span>    - <span class="built_in">list-2-1</span></span><br><span class="line"><span class="built_in"></span>    - <span class="built_in">list-2-2</span></span><br></pre></td></tr></table></figure>
-<p><strong>显示效果如下:</strong></p>
-<ul>
-<li>list-1<ul>
-<li>list-1-1</li>
-<li>list-1-2</li>
-</ul>
+<li><p><strong>任务列表</strong><br>在文字前加上 <code>[ ]</code> (不勾选) 或 <code>[x]</code> 勾选</p>
 </li>
+</ul>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 有序列表 --&gt;</span><br><span class="line"></span><br><span class="line">  1. <span class="string">list1</span></span><br><span class="line"><span class="string"> </span> 2. <span class="string">list2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;</span>!-- 无序列表 --&gt;</span><br><span class="line"></span><br><span class="line">  + <span class="built_in">list-1</span></span><br><span class="line"><span class="built_in"></span>    - <span class="built_in">list-1-1</span></span><br><span class="line"><span class="built_in"></span>    - <span class="built_in">list-1-2</span></span><br><span class="line"><span class="built_in"></span>  + <span class="built_in">list-2</span></span><br><span class="line"><span class="built_in"></span>    - <span class="built_in">list-2-1</span></span><br><span class="line"><span class="built_in"></span>    - <span class="built_in">list-2-2</span></span><br><span class="line"><span class="built_in"></span></span><br><span class="line"><span class="built_in">&lt;!--</span> 任务列表 --&gt;</span><br><span class="line"></span><br><span class="line">  - [x] 选项一</span><br><span class="line">  - [ ] 选项二  </span><br><span class="line">  - [ ] 选项三</span><br></pre></td></tr></table></figure>
+<p><strong>显示效果如下:</strong><br>有序列表:</p>
+<ol>
+<li>list1</li>
+<li>list2</li>
+</ol>
+<p>无序列表:</p>
+<ul>
 <li>list-2<ul>
 <li>list-2-1</li>
 <li>list-2-2</li>
 </ul>
 </li>
 </ul>
-<p><strong>注意</strong>: <code>-</code> 、 <code>+</code> 、 <code>1.</code> 、 <code>2.</code> 与文本之间要保留一个空格。</p>
+<p>任务列表:</p>
+<ul>
+<li>[x] 选项一</li>
+<li>[x] 选项二  </li>
+<li>[x] 选项三</li>
+</ul>
+<p><strong>注意</strong>: <code>-</code> 、 <code>+</code> 、 <code>1.</code> 、 <code>2.</code>、 <code>[ ]</code> 与文本之间要保留一个空格。</p>
 <h3 id="四、字体样式"><a href="#四、字体样式" class="headerlink" title="四、字体样式"></a>四、字体样式</h3><ul>
 <li><strong>加粗</strong><br>要加粗的文字左右分别用两个 <code>*</code> 号包起来</li>
 <li><strong>斜体</strong><br>要倾斜的文字左右分别用一个 <code>*</code> 号包起来</li>
@@ -225,7 +233,7 @@ var _hmt = _hmt || [];
 <p><img src="http://q7yhi2vue.bkt.clouddn.com/image/md-daimakuai.png" alt="md-daimakuai"></p>
 <h3 id="七、插入链接"><a href="#七、插入链接" class="headerlink" title="七、插入链接"></a>七、插入链接</h3><p>  <code>[]</code> 中放要显示的文字，<code>()</code> 中放链接<br>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">百度一下</span>](<span class="link">http://www.baidu.com</span>)</span><br></pre></td></tr></table></figure></p>
 <p><strong>显示效果如下:</strong><br>  <a href="http://www.baidu.com" target="_blank" rel="noopener">百度一下</a></p>
-<h3 id="八、表格"><a href="#八、表格" class="headerlink" title="八、表格"></a>八、表格</h3><p>  在文字左右插入 <code>|</code> 符号，<code>:</code> 代表对齐方式。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> name </span>|<span class="string"> age </span>|<span class="string"> gender </span>|</span><br><span class="line">|<span class="string"> :--: </span>|<span class="string"> :-: </span>|<span class="string"> :----: </span>|</span><br><span class="line">|<span class="string"> 张三 </span>|<span class="string"> 30 </span>|<span class="string"> mail </span>|</span><br><span class="line">|<span class="string"> 李四 </span>|<span class="string"> 19 </span>|<span class="string"> mail </span>|</span><br></pre></td></tr></table></figure></p>
+<h3 id="八、表格"><a href="#八、表格" class="headerlink" title="八、表格"></a>八、表格</h3><p>  在文字左右插入 <code>|</code> 符号，<code>:</code> 代表对齐方式。<br>  <strong>:—-:</strong> (居中对齐)<br>  <strong>:—-</strong> (左对齐)<br>  <strong>—-:</strong> (右对齐)<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> name </span>|<span class="string"> age </span>|<span class="string"> gender </span>|</span><br><span class="line">|<span class="string"> :--: </span>|<span class="string"> :-: </span>|<span class="string"> :----: </span>|</span><br><span class="line">|<span class="string"> 张三 </span>|<span class="string"> 30 </span>|<span class="string"> mail </span>|</span><br><span class="line">|<span class="string"> 李四 </span>|<span class="string"> 19 </span>|<span class="string"> mail </span>|</span><br></pre></td></tr></table></figure></p>
 <p><strong>显示效果如下:</strong></p>
 <table>
 <thead>
@@ -252,7 +260,17 @@ var _hmt = _hmt || [];
 <p>  <img src="http://q7yhi2vue.bkt.clouddn.com/image/md-liuchengtu.png" alt="md-liuchengtu"></p>
 <h3 id="十、图片"><a href="#十、图片" class="headerlink" title="十、图片"></a>十、图片</h3><p>  <code>[]</code> 中放当图片由于某些原因无法显示时，显示的文字，<code>()</code> 中放链接地址，可以相对路径，也可以是绝对路径。<br>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- 普通图片 --&gt;</span></span></span><br><span class="line">![<span class="string">百度logo</span>](<span class="link">https://www.baidu.com/img/bd_logo1.png?qua=high</span>)</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- 图片链接 --&gt;</span></span></span><br><span class="line">[<span class="string">![百度logo</span>](<span class="link">https://www.baidu.com/img/bd_logo1.png?qua=high</span>)](<span class="link">http://www.baidu.com</span>)</span><br></pre></td></tr></table></figure></p>
 <p><strong>显示效果如下:</strong><br>  普通图片<br>  <img src="https://www.baidu.com/img/bd_logo1.png?qua=high" alt="百度logo"><br>  图片链接<br>  <a href="http://www.baidu.com" target="_blank" rel="noopener"><img src="https://www.baidu.com/img/bd_logo1.png?qua=high" alt="百度logo"></a></p>
-<p><strong>小建议:</strong> 如果你的文章不发往掘金、思否、CSDN等平台的话，建议使用相对路径，如果你的文章要发往各个平台，因为每个平台的图片处理方式不同，所以建议使用绝对路径（使用图床或自己买服务器上传图片）。</p>
+<p><strong>建议:</strong> 如果你的文章不发往掘金、思否、CSDN等平台的话，建议使用相对路径，如果你的文章要发往各个平台，因为每个平台的图片处理方式不同，所以建议使用绝对路径（使用图床或自己买服务器上传图片）。</p>
+<h3 id="十一、支持内嵌HTML-amp-CSS"><a href="#十一、支持内嵌HTML-amp-CSS" class="headerlink" title="十一、支持内嵌HTML&amp;CSS"></a>十一、支持内嵌HTML&amp;CSS</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"color: #abcdef; font-size: 26px;"</span>&gt;</span>内嵌HTML、CSS<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>显示效果如下:</strong></p>
+<p style="color: #abcdef; font-size: 26px;">内嵌HTML、CSS</p>
+
+<h3 id="十二、锚点"><a href="#十二、锚点" class="headerlink" title="十二、锚点"></a>十二、锚点</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#### [需要跳转的目录](#<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>显示效果如下:</strong></p>
+<h4 id="需要跳转的目录"><a href="#需要跳转的目录" class="headerlink" title="需要跳转的目录"></a><a href="#1">需要跳转的目录</a></h4><p>注意: 只有标题支持锚点</p>
+<h3 id="十三、解释型定义"><a href="#十三、解释型定义" class="headerlink" title="十三、解释型定义"></a>十三、解释型定义</h3><p>  开头一个<code>:</code> + <code>Tab</code> 组成<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Markdown </span><br><span class="line">: 轻量级文本标记语言，可以转换成html，pdf等格式</span><br></pre></td></tr></table></figure></p>
+<p><strong>显示效果如下:</strong></p>
+<p>Markdown<br>: 轻量级文本标记语言，可以转换成html，pdf等格式</p>
 
       
 
@@ -431,7 +449,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">+ css</a>
+                <a href="javascript:void(0)" class="js-tag color1">+ 算法题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -439,7 +457,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">+ css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">js-array</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,15 +477,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">js-array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">

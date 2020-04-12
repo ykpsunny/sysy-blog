@@ -148,6 +148,13 @@ findSumIndex([1, 3, 5, 6, 11], 7) // [0, 3]
     }
     return arr[n]
   }
+  // 递归法
+  function climbStairs (n) {
+    if (n <= 2) {
+      return n
+    }
+    return climbStairs(n - 1) + climbStairs(n - 2)
+  }
   climbStairs(4) // 5
 ```
 

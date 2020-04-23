@@ -6,62 +6,30 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Document</title>
 		<style>
-			body{
-				display: flex;
-				align-items: center;
-				height: 100vh;
-				width: 100vw;
-				justify-content: center;
-				padding: 0;
-				margin: 0;
-			}
-			#btn {
-				width: 146px;
-				height: 46px;
-				line-height: 46px;
-				text-align: center;
-				border-radius: 10px;
-				font-size: 18px;
-				color: #fff;
-				background-color: #788cff;
-				font-weight: bold;
-				display: inline-block;
-				cursor: pointer;
-				user-select: none;
+			.container {
+				width: 500px;
+				height: 300px;
+				background-color: #f00;
+				padding: 20px;
 				position: relative;
-				overflow: hidden;
+				border: 10px solid black;
 			}
-			#btn span {
-				position: relative;
-				z-index: 999;
-			}
-			#btn::after {
-				content: "";
+			.inner {
+				width: 50%;
+				height: 50%;
+				border: 10px solid black;
+				padding: 10px;
+				background-color: #0ff;
 				position: absolute;
-				left: var(--x);
-				top: var(--y);
-				width: var(--size);
-				height: var(--size);
-				background: radial-gradient(#c47dde, transparent);
-				transform: translate(-50%, -50%); /* 让伪元素中心跟随着鼠标点 */
-				transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
-			}
-			#btn:hover::after {
-				--size: 300px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
 			}
 		</style>
 	</head>
 	<body>
-		<div id="btn"><span>click me</span></div>
-		<script>
-			const btn = document.getElementById("btn");
-			btn.addEventListener("mousemove", e => {
-				const { offsetLeft, offsetTop, style } = e.target;
-				const x = e.pageX - offsetLeft,
-					y = e.pageY - offsetTop;
-				style.setProperty("--x", `${x}px`);
-				style.setProperty("--y", `${y}px`);
-			});
-		</script>
+		<div class="container">
+			<div class="inner"></div>
+		</div>
 	</body>
 </html>

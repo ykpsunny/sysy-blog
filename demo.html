@@ -6,30 +6,43 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Document</title>
 		<style>
-			.container {
-				width: 500px;
-				height: 300px;
-				background-color: #f00;
-				padding: 20px;
-				position: relative;
-				border: 10px solid black;
+			.body{
+				padding: 0 200px;
+				min-width: 400px;
 			}
-			.inner {
-				width: 50%;
-				height: 50%;
-				border: 10px solid black;
-				padding: 10px;
-				background-color: #0ff;
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
+			.col-left, .col-right,
+			.col-center{
+				float: left;
+				position: relative;
+				min-height: 500px;
+			}
+			.col-left, .col-right{
+				width: 200px;
+			}
+			.col-center{
+				width: 100%;
+				background-color: #f00;
+			}
+			.col-left{
+				left: -200px;
+				/* margin 负数值比较大的话会一直移动到上一行 */
+				margin-left: -100%;
+				background-color: #000;
+			}
+			.col-right{
+				margin-right: -200px;
+				background: #0ff;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
-			<div class="inner"></div>
+			<div class="body">
+				<div class="col-center">
+				</div>
+				<div class="col-left"></div>
+				<div class="col-right"></div>
+			</div>
 		</div>
 	</body>
 </html>

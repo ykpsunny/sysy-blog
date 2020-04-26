@@ -6,43 +6,15 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Document</title>
 		<style>
-			.body{
-				padding: 0 200px;
-				min-width: 400px;
-			}
-			.col-left, .col-right,
-			.col-center{
-				float: left;
-				position: relative;
-				min-height: 500px;
-			}
-			.col-left, .col-right{
-				width: 200px;
-			}
-			.col-center{
-				width: 100%;
-				background-color: #f00;
-			}
-			.col-left{
-				left: -200px;
-				/* margin 负数值比较大的话会一直移动到上一行 */
-				margin-left: -100%;
-				background-color: #000;
-			}
-			.col-right{
-				margin-right: -200px;
-				background: #0ff;
+			.box {
+				background-image: repeating-linear-gradient(#f40, #ff0 5%, #0ff 10%);
+				background-image: repeating-radial-gradient(#f40, #ff0 5%, #0ff 10%);
+				height: 400px;
+				width: 400px;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="container">
-			<div class="body">
-				<div class="col-center">
-				</div>
-				<div class="col-left"></div>
-				<div class="col-right"></div>
-			</div>
-		</div>
+		<div class="box" data-content="content"></div>
 	</body>
 </html>

@@ -13,19 +13,23 @@ tags:
 随着 web3. 0 时代的到来，CSS 语言越来越强大，能实现的功能也比我们想象的要多，以前需要借助 JavaScript 才能完成的事情，现在使用纯 CSS 就能完成，在这篇文章中盘点 CSS 中的函数。
 
 ### 一、var
+
   var 函数使得可以在 CSS 使用变量
 
 使用:
-```css
-  :root{
+
+``` css
+  :root {
     /* 定义变量 */
     --bg-color: #f40;
   }
-  .box{
+
+  .box {
     /* 使用变量 */
     background: var(--bg-color);
   }
 ```
+
 [点击查看 var 的详细使用](/2020/03/19/css-variable-1)
 
 <!-- more -->
@@ -165,4 +169,16 @@ tags:
   }
 </style>
 <div class="box" data-content="content"></div>
+```
+
+### 六、cubic-bezier
+
+  贝塞尔曲线函数，一般用于动画节奏感设置
+
+语法:
+
+``` css
+  .box {
+    transition: all 0.3s cubic-bezier(x1, y1, x2, y2);
+  }
 ```

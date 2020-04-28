@@ -180,5 +180,71 @@ tags:
 ``` css
   .box {
     transition: all 0.3s cubic-bezier(x1, y1, x2, y2);
+    /* x1, y1, x2, y2 必须是0到1之间的数字 */
   }
+```
+
+使用:
+
+``` html
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #f40;
+      transition: all 0.5s cubic-bezier(0.14, 0.59, 0.51, 0.94);
+    }
+
+    .box:hover {
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+  <div class="box"></div>
+```
+
+### 七、rgb
+
+  使用红 - 绿 - 蓝(三原色)定义颜色，Alpha 指定颜色的不透明度。
+
+语法:
+
+``` css
+  .box {
+    color: rgb(red, green, blue);
+    /* red, grenn, blue 都是 0 - 255 的数值，或者 0% - 100% 的百分比值 */
+  }
+```
+
+使用:
+``` html
+  <style>
+    .box {
+      color: rgb(0, 255, 255);
+    }
+  </style>
+  <div class="box"></div>
+```
+
+### 八、rgba
+
+  在 rgb 的基础上加了 Alpha, 用于指定颜色的不透明度。
+
+语法:
+
+``` css
+  .box {
+    color: rgba(red, green, blue, alpha);
+    /* alpha 用于指定颜色的不透明度, 取值范围 0 - 1, 值越小，颜色就越透明 */
+  }
+```
+
+使用:
+``` html
+  <style>
+    .box {
+      background-color: rgba(0, 255, 255, 0.1);
+    }
+  </style>
+  <div class="box"></div>
 ```

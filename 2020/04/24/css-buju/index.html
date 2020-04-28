@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="//sysy.site">
-  <title>Sunny的博客</title>
+  <title>CSS 中常见的布局 | Sunny的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于提升锻炼自己的博客">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,编程,代码,开源,Developer,Programmer,Coder,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sunny的博客">
-<meta property="og:url" content="//sysy.site/page/2/index.html">
+  <meta name="description" content="一、单列布局header 与 footer 等宽沾满全屏, body 略窄的单列布局 1234567891011121314151617&amp;lt;style&amp;gt;  .header,  .footer &amp;#123;    height: 60px;  &amp;#125;  .body &amp;#123;    width: 80%;    margin: auto;    min-height: calc(1">
+<meta name="keywords" content="+ CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 中常见的布局">
+<meta property="og:url" content="//sysy.site/2020/04/24/css-buju/index.html">
 <meta property="og:site_name" content="Sunny的博客">
-<meta property="og:description" content="用于提升锻炼自己的博客">
+<meta property="og:description" content="一、单列布局header 与 footer 等宽沾满全屏, body 略窄的单列布局 1234567891011121314151617&amp;lt;style&amp;gt;  .header,  .footer &amp;#123;    height: 60px;  &amp;#125;  .body &amp;#123;    width: 80%;    margin: auto;    min-height: calc(1">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-26T15:31:28.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sunny的博客">
-<meta name="twitter:description" content="用于提升锻炼自己的博客">
+<meta name="twitter:title" content="CSS 中常见的布局">
+<meta name="twitter:description" content="一、单列布局header 与 footer 等宽沾满全屏, body 略窄的单列布局 1234567891011121314151617&amp;lt;style&amp;gt;  .header,  .footer &amp;#123;    height: 60px;  &amp;#125;  .body &amp;#123;    width: 80%;    margin: auto;    min-height: calc(1">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -130,35 +131,78 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-css-variable-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-css-buju" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/20/css-variable-2/">CSS 变量(variable) -- 实战篇</a>
+    <h1 class="article-title" itemprop="name">
+      CSS 中常见的布局
     </h1>
   
 
         
-        <a href="/2020/03/20/css-variable-2/" class="archive-article-date">
-  	<time datetime="2020-03-20T13:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+        <a href="/2020/04/24/css-buju/" class="archive-article-date">
+  	<time datetime="2020-04-24T13:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、-网站换肤"><a href="#一、-网站换肤" class="headerlink" title="一、 网站换肤"></a>一、 网站换肤</h4><p>1、实现网站换肤功能，一般最先想到的是用全局 class 控制样式切换<br>缺点：全局控制 CSS，在项目不大，换肤样式不多的情况下，还能勉强够用。但是换肤样式很多的话，代码会非常臃肿，不利于维护。<br>2、通过 js 来切换引入 CSS 样式的 href 属性值，来达到样式切换的目的。<br>缺点：使用 js 改变 href 属性会带来加载延迟(样式文件越大，加载越久)。<br>3、使用 js 修改 css 变量值来达到换肤效果。</p>
-<p>今天我们要说的就是第三种, 使用 js 修改 css 变量值来达到换肤效果</p>
-        
-          <a class="article-more-a" href="/2020/03/20/css-variable-2/#more">more >></a>
-        
+        <h3 id="一、单列布局"><a href="#一、单列布局" class="headerlink" title="一、单列布局"></a>一、单列布局</h3><p>header 与 footer 等宽沾满全屏, body 略窄的单列布局</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.header</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.footer</span> &#123;</span></span><br><span class="line">    height: 60px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.body</span> &#123;</span></span><br><span class="line">    width: 80%;</span><br><span class="line">    margin: auto;</span><br><span class="line">    min-height: calc(100vh - 120px);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="二、两列自适应布局"><a href="#二、两列自适应布局" class="headerlink" title="二、两列自适应布局"></a>二、两列自适应布局</h3><p>两列自适应布局是指一列宽度固定，另一列撑满剩余宽度的布局方式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.body</span> &#123;</span></span><br><span class="line">    display: flex;</span><br><span class="line">    min-height: 100vh;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.aside</span> &#123;</span></span><br><span class="line">    width: 200px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.main</span> &#123;</span></span><br><span class="line">    width: calc(100vw - 200px);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aside</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">main</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="三、三栏布局"><a href="#三、三栏布局" class="headerlink" title="三、三栏布局"></a>三、三栏布局</h3><p>中间列自适应宽度，旁边两侧固定宽度</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.body</span> &#123;</span></span><br><span class="line">    display: flex;</span><br><span class="line">    min-height: 100vh;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-left</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.col-right</span> &#123;</span></span><br><span class="line">    width: 200px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-center</span> &#123;</span></span><br><span class="line">    width: calc(100% - 400px);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h3><p>比较特殊的三栏布局，同样也是两边固定宽度，中间自适应，唯一区别结构必须是先写中间列部分，这样实现中间列可以优先加载。</p>
+<p>实现方式: </p>
+<ul>
+<li>三个部分都设定为左浮动，然后设置 col-center 的宽度为 100%(实现中间列内容自适应)，此时，col-left 和 col-right 部分会被挤到下一行</li>
+<li>通过设置 margin-left 为负值让 col-left 和 col-right 部分回到与 col-center 部分同一行</li>
+<li>然后通过设置父容器的 padding-left 和 padding-right，让左右两边留出间隙。</li>
+<li>最后通过设置相对定位，让 left 和 right 部分移动到两侧。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.body</span> &#123;</span></span><br><span class="line">    padding: 0 200px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-left</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.col-right</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.col-center</span> &#123;</span></span><br><span class="line">    float: left;</span><br><span class="line">    min-height: 500px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-left</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.col-right</span> &#123;</span></span><br><span class="line">    width: 200px;</span><br><span class="line">    position: relative;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-center</span> &#123;</span></span><br><span class="line">    width: 100%;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-left</span> &#123;</span></span><br><span class="line">    left: -200px;</span><br><span class="line"><span class="css">    <span class="comment">/* margin 负数值比较大的话会一直移动到上一行 */</span></span></span><br><span class="line">    margin-left: -100%;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-right</span> &#123;</span></span><br><span class="line">    margin-right: -200px;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h3><p>为了解决圣杯布局宽度较小时，左右两列挤下去，以及中间部分不显示的问题。<br>设置父容器的最小宽度</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.body</span> &#123;</span></span><br><span class="line">    padding: 0 200px;</span><br><span class="line"><span class="css">    <span class="comment">/* 设置父容器的最小宽度，显示中间部分 */</span></span></span><br><span class="line">    min-width: 400px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-left</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.col-right</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.col-center</span> &#123;</span></span><br><span class="line">    float: left;</span><br><span class="line">    position: relative;</span><br><span class="line">    min-height: 500px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-left</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.col-right</span> &#123;</span></span><br><span class="line">    width: 200px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-center</span> &#123;</span></span><br><span class="line">    width: 100%;</span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#f00</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-left</span> &#123;</span></span><br><span class="line">    left: -200px;</span><br><span class="line"><span class="css">    <span class="comment">/* margin 负数值比较大的话会一直移动到上一行 */</span></span></span><br><span class="line">    margin-left: -100%;</span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.col-right</span> &#123;</span></span><br><span class="line">    margin-right: -200px;</span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#0ff</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-center"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -169,7 +213,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">+ css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">+ CSS</a>
         		</li>
       		
 		</ul>
@@ -178,16 +222,33 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/20/css-variable-2/">展开全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/04/25/css-function/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          盘点 CSS 中的方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/20/css-danwei/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS 中常见的单位</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -207,173 +268,12 @@ var _hmt = _hmt || [];
 
 
 
-
-  
-    <article id="post-css-variable-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/19/css-variable-1/">CSS 变量(variable) -- 基础篇</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/19/css-variable-1/" class="archive-article-date">
-  	<time datetime="2020-03-19T13:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>​    css 变量可以让你不使用任何预处理器 (less, sass, stylus)，不需要通过任何工具预处理，可以原生在浏览器中使用变量</p>
-<h4 id="一、变量的声明"><a href="#一、变量的声明" class="headerlink" title="一、变量的声明"></a>一、变量的声明</h4><p>​    声明变量的时候，变量名前要加两根连字符 <strong>(–)</strong>。<br>​</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--bg-color</span>: <span class="number">#f40</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​    上面代码中，声明了一个css变量，你可能会问，为什么官方要选择两根连字符表示变量？因为 $bg-color 被 sass 用掉了，@bg-color 被 less 用掉了，所以官方为了不产生冲突，css 声明变量改用两根连字符了。</p>
-        
-          <a class="article-more-a" href="/2020/03/19/css-variable-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">+ css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/19/css-variable-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js-daimapianduan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/js-daimapianduan/">32个js代码小技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/15/js-daimapianduan/" class="archive-article-date">
-  	<time datetime="2020-03-15T07:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://q7yhi2vue.bkt.clouddn.com/image/landscape.jpg" alt="配图"></p>
-<p>1、<strong>生成长度为 10 的随机 ID</strong></p>
-   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id = <span class="built_in">Math</span>.random().toString(<span class="number">36</span>).slice(<span class="number">2</span>) <span class="comment">// "z29mwr6neu"</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/03/15/js-daimapianduan/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/js-daimapianduan/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -391,8 +291,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

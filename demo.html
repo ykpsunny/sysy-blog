@@ -27,10 +27,55 @@
 	</head>
 	<body>
 		<div class="box"
-			>这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字</div
+			>这是一行很长很长的文字, 这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字</div
 		>
 		<div class="box1"
 			>这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字,这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字</div
 		>
 	</body>
+	<script>
+		const arr = [-3, -5, -2, -1, 6, 4, -3, 5, -2, -1, 0, 1, -4, -9];
+		// function numberArr (arr) {
+		// 	let newArr = []
+		// 	for (let i = 0, len = arr.length; i < len; i ++) {
+		// 		arr[i] < 0 ? newArr.push(arr[i]) : newArr.unshift(arr[i])
+		// 	}
+		// 	return newArr
+		// }
+		function numberArr (arr) {
+			if (arr.length === 1) {
+				return arr
+			}
+			let end = arr.length
+			for (let i = 0; i < end; ) {
+				if (arr[i] >= 0) {
+					i ++
+				}
+				else{
+					let temp = arr[i]
+					arr[i] = arr[end - 1]
+					arr[end - 1] = temp
+				}
+				if (arr[end - 1] < 0) {
+					end --
+				}
+			}
+		}
+		let obj = {'A': 1, 'B.A': 2, 'B.B': 3, 'CC.D.E': 4, 'CC.D.F': 5}
+		function dictionariesObj (origin, target = {}) {
+			for (let prop in obj) {
+				if (obj.hasOwnProperty(prop)) {
+					if (prop.indexOf('.') > -1) {
+						let arr = prop.split('.')
+						for (let i = 0; i < arr.length; i ++) {
+							
+						}
+					}
+					else{
+						target[prop] = obj[prop]
+					}
+				}
+			}
+		}
+	</script>
 </html>

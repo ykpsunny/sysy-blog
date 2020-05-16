@@ -35,34 +35,21 @@
 		>
 	</body>
 	<script>
-		const arr = [-3, -5, -2, -1, 6, 4, -3, 5, -2, -1, 0, 1, -4, -9];
-		// function numberArr (arr) {
-		// 	let newArr = []
-		// 	for (let i = 0, len = arr.length; i < len; i ++) {
-		// 		arr[i] < 0 ? newArr.push(arr[i]) : newArr.unshift(arr[i])
-		// 	}
-		// 	return newArr
-		// }
-		function numberArr(arr) {
-			if (arr.length === 1) {
-				return arr;
-			}
-			let end = arr.length;
-			for (let i = 0; i < end; ) {
-				if (arr[i] >= 0) {
-					i++;
-				} else {
-					let temp = arr[i];
-					arr[i] = arr[end - 1];
-					arr[end - 1] = temp;
-				}
-				if (arr[end - 1] < 0) {
-					end--;
+		let obj = {
+			A: 1,
+			B: {
+				A: 2,
+				B: 3
+			},
+			C: {
+				D: {
+					E: 4,
+					F: 5
 				}
 			}
 		}
-		let obj = { A: 1, "B.A": 2, "B.B": 3, "CC.D.E": 4, "CC.D.F": 5 };
 		function assembleObj(origin, prop, value) {
+
 			let index = prop.indexOf(".");
 			if (index === -1) {
 				origin[prop] = value;
@@ -70,21 +57,37 @@
 			}
 			let key = prop.slice(0, index);
 			origin[key] = {
-				...origin[key]
+				...origin[key],
 			};
 			return assembleObj(origin[key], prop.slice(index + 1), value);
 		}
-		function dictionariesObj(origin, target = {}) {
+
+		function fromdictionariesObj(origin, target = {}) {
+
+			function assembleObj(origin, prop, value) {
+				let index = prop.indexOf(".");
+				if (index === -1) {
+					origin[prop] = value;
+					return origin;
+				}
+				let key = prop.slice(0, index);
+				origin[key] = {
+					...origin[key],
+				};
+				return assembleObj(origin[key], prop.slice(index + 1), value);
+			}
+
 			for (let prop in obj) {
 				if (obj.hasOwnProperty(prop)) {
-					if (prop.indexOf(".") > -1) {
+					if (Object.prototype.toString.call(obj[prop]) === '[object Object]') {
 						assembleObj(target, prop, obj[prop]);
 					} else {
 						target[prop] = obj[prop];
 					}
 				}
 			}
-			return target
+
+			return target;
 		}
 	</script>
 </html>

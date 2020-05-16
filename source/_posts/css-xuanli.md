@@ -8,3 +8,4 @@ tags:
 
 ---
 ### 一、tooltip
+  利用 css 的 attr 函数获取对应的属性

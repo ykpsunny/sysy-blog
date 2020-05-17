@@ -39,48 +39,36 @@
 			A: 1,
 			B: {
 				A: 2,
-				B: 3
+				B: 3,
 			},
 			C: {
 				D: {
 					E: 4,
-					F: 5
+					F: 5,
+				},
+			},
+		};
+
+		function fromdictionaries(origin, target = {}) {
+			const toString = Object.prototype.toString;
+
+			function flatAssemble(target, key, value) {
+				if (toString.call(value) !== "[object Object]") {
+					target[key] = value;
+					return target;
 				}
-			}
-		}
-		function assembleObj(origin, prop, value) {
-
-			let index = prop.indexOf(".");
-			if (index === -1) {
-				origin[prop] = value;
-				return origin;
-			}
-			let key = prop.slice(0, index);
-			origin[key] = {
-				...origin[key],
-			};
-			return assembleObj(origin[key], prop.slice(index + 1), value);
-		}
-
-		function fromdictionariesObj(origin, target = {}) {
-
-			function assembleObj(origin, prop, value) {
-				let index = prop.indexOf(".");
-				if (index === -1) {
-					origin[prop] = value;
-					return origin;
+				for (let prop in value) {
+					if (value.hasOwnProperty(prop)) {
+						flatAssemble(target, key + "." + prop, value[prop]);
+					}
 				}
-				let key = prop.slice(0, index);
-				origin[key] = {
-					...origin[key],
-				};
-				return assembleObj(origin[key], prop.slice(index + 1), value);
+				return target;
 			}
 
 			for (let prop in obj) {
 				if (obj.hasOwnProperty(prop)) {
-					if (Object.prototype.toString.call(obj[prop]) === '[object Object]') {
-						assembleObj(target, prop, obj[prop]);
+					if (toString.call(obj[prop]) === "[object Object]") {
+						flatAssemble(target, prop, obj[prop]);
 					} else {
 						target[prop] = obj[prop];
 					}
@@ -89,5 +77,7 @@
 
 			return target;
 		}
+
+		fromdictionaries(obj); // {A: 1, B.A: 2, B.B: 3, C.D.E: 4, C.D.F: 5}
 	</script>
 </html>

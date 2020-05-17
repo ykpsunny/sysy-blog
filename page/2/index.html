@@ -132,6 +132,183 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-web-ui-utils" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/28/web-ui-utils/">前端组件库及工具集合</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/28/web-ui-utils/" class="archive-article-date">
+  	<time datetime="2020-03-28T05:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、PC-端-UI-框架"><a href="#一、PC-端-UI-框架" class="headerlink" title="一、PC 端 UI 框架"></a>一、PC 端 UI 框架</h3><ul>
+<li><h4 id="Ant-Design"><a href="#Ant-Design" class="headerlink" title="Ant Design"></a>Ant Design</h4><ul>
+<li>官网地址: <a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener">https://ant.design/docs/react/introduce-cn</a></li>
+<li>GitHub 地址: <a href="https://github.com/ant-design/ant-design" target="_blank" rel="noopener">https://github.com/ant-design/ant-design</a></li>
+</ul>
+<blockquote>
+<p>阿里旗下蚂蚁金服基于 <em>React</em> 开源的 UI 组件库，企业级中后台直接用它就完事，组件齐全，例子较多，使用简单，估计已经是很多公司的标配了，我公司之前使用，后来转公司内部 UI 组件库了，转的时候还比较难，毕竟 Ant Design 已经发布这么久了，经过很多开发者的建议(最近又新发布了 4.0版本，增加了许多新特性)，功能齐全，而我司的还是个新新的 UI 框架，坑嘛，你懂的！</p>
+</blockquote>
+<p><img src="http://q7yhi2vue.bkt.clouddn.com/image/ant-design-react.png" alt="ant-design-react"></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/03/28/web-ui-utils/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/28/web-ui-utils/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-arrayflatten" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/21/js-arrayflatten/">JS 数组扁平化 (flatten)</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/21/js-arrayflatten/" class="archive-article-date">
+  	<time datetime="2020-03-21T10:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>​    数组是 JS 中使用评率仅次于对象的数据结构，官方提供了诸多 API (比如：push，pop，shift，unshift ….)，今天我们来谈谈如何扁平化数组。</p>
+<blockquote>
+<p>顾名思义，扁平化数组就是将一些嵌套的多维数组转成一维数组。</p>
+</blockquote>
+<p>我们以一个例子贯穿全文:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>], [<span class="number">9</span>]], <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="一、ES10-中提供的数组扁平化方法-—-flat"><a href="#一、ES10-中提供的数组扁平化方法-—-flat" class="headerlink" title="一、ES10 中提供的数组扁平化方法 — flat"></a>一、ES10 中提供的数组扁平化方法 — flat</h4><blockquote>
+<p><strong>flat</strong> 方法会按照一个可指定的深度进行递归遍历数组，并将所有遍历到的元素合并为一个新的数组返回。</p>
+</blockquote>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newArray = arr.flat([depth])</span><br></pre></td></tr></table></figure>
+<p>注意：dpeth 参数是可选的, 指定要提取嵌套数组的结构深度，默认值为 1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = array.flat(<span class="literal">Infinity</span>) <span class="comment">// 当参数为 Infinity 时代表，递归任意深度的嵌套数组</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/03/21/js-arrayflatten/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">js-array</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/21/js-arrayflatten/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-css-variable-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -459,10 +636,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">+ Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -471,15 +644,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">+ js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">+ Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
               </li>
              
               <li class="article-tag-list-item">

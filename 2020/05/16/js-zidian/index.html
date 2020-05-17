@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="//sysy.site">
-  <title>Tag: 工具 | Sunny的博客</title>
+  <title>JS 字典 | Sunny的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于提升锻炼自己的博客">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,编程,代码,开源,Developer,Programmer,Coder,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sunny的博客">
-<meta property="og:url" content="//sysy.site/tags/工具/index.html">
+  <meta name="description" content="最近朋友问我一道题目, 所以打算记录下, 题目如下:  给定一个 “扁平化” 字典对象, 其键以点分隔。例如: {‘A’: 1, ‘B. A’: 2, ‘B. B’: 3, ‘C. D. E’: 4, ‘C. D. F’: 5}。实现将其转换为 嵌套 字典对象的功能。在上述的描述情况下，嵌套版本如下:12345678910111213&amp;#123;  A: 1,   B: &amp;#123;    A:">
+<meta name="keywords" content="+ js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 字典">
+<meta property="og:url" content="//sysy.site/2020/05/16/js-zidian/index.html">
 <meta property="og:site_name" content="Sunny的博客">
-<meta property="og:description" content="用于提升锻炼自己的博客">
+<meta property="og:description" content="最近朋友问我一道题目, 所以打算记录下, 题目如下:  给定一个 “扁平化” 字典对象, 其键以点分隔。例如: {‘A’: 1, ‘B. A’: 2, ‘B. B’: 3, ‘C. D. E’: 4, ‘C. D. F’: 5}。实现将其转换为 嵌套 字典对象的功能。在上述的描述情况下，嵌套版本如下:12345678910111213&amp;#123;  A: 1,   B: &amp;#123;    A:">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-17T02:33:46.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sunny的博客">
-<meta name="twitter:description" content="用于提升锻炼自己的博客">
+<meta name="twitter:title" content="JS 字典">
+<meta name="twitter:description" content="最近朋友问我一道题目, 所以打算记录下, 题目如下:  给定一个 “扁平化” 字典对象, 其键以点分隔。例如: {‘A’: 1, ‘B. A’: 2, ‘B. B’: 3, ‘C. D. E’: 4, ‘C. D. F’: 5}。实现将其转换为 嵌套 字典对象的功能。在上述的描述情况下，嵌套版本如下:12345678910111213&amp;#123;  A: 1,   B: &amp;#123;    A:">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -130,60 +131,130 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js-zidian" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/28/web-ui-utils/" class="archive-article-date">
-  	<time datetime="2020-03-28T05:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/28/web-ui-utils/">前端组件库及工具集合</a>
+    <h1 class="article-title" itemprop="name">
+      JS 字典
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/16/js-zidian/" class="archive-article-date">
+  	<time datetime="2020-05-16T11:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近朋友问我一道题目, 所以打算记录下, 题目如下:<br>  给定一个 “扁平化” 字典对象, 其键以点分隔。例如: {‘A’: 1, ‘B. A’: 2, ‘B. B’: 3, ‘C. D. E’: 4, ‘C. D. F’: 5}。实现将其转换为 <strong>嵌套</strong> 字典对象的功能。在上述的描述情况下，嵌套版本如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  A: <span class="number">1</span>, </span><br><span class="line">  B: &#123;</span><br><span class="line">    A: <span class="number">2</span>,</span><br><span class="line">    B: <span class="number">3</span></span><br><span class="line">  &#125;, </span><br><span class="line">  C: &#123;</span><br><span class="line">    D: &#123;</span><br><span class="line">      E: <span class="number">4</span>,</span><br><span class="line">      F: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="string">"A"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="string">"B.A"</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="string">"B.B"</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="string">"C.D.E"</span>: <span class="number">4</span>,</span><br><span class="line">  <span class="string">"C.D.F"</span>: <span class="number">5</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dictionaries</span>(<span class="params">origin, target = &#123;&#125;</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">assemble</span>(<span class="params">origin, prop, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> index = prop.indexOf(<span class="string">"."</span>);</span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">-1</span>) &#123;</span><br><span class="line">      origin[prop] = value;</span><br><span class="line">      <span class="keyword">return</span> origin;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> key = prop.slice(<span class="number">0</span>, index);</span><br><span class="line">    origin[key] = &#123;</span><br><span class="line">      ...origin[key],</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> assemble(origin[key], prop.slice(index + <span class="number">1</span>), value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (prop.indexOf(<span class="string">"."</span>) &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">        assemble(target, prop, obj[prop]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        target[prop] = obj[prop];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dictionaries(obj)</span><br></pre></td></tr></table></figure>
+<p>解题思路: 判断 key 是否包含 <strong>.</strong>，如果包含，则按 <strong>.</strong> 来切割，进行递归</p>
+<p>上面是转成嵌套版本的，那从 <strong>嵌套</strong> 版本转成 <strong>扁平</strong> 版本呢 ? 实现方式如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  A: <span class="number">1</span>, </span><br><span class="line">  B: &#123;</span><br><span class="line">    A: <span class="number">2</span>,</span><br><span class="line">    B: <span class="number">3</span></span><br><span class="line">  &#125;, </span><br><span class="line">  C: &#123;</span><br><span class="line">    D: &#123;</span><br><span class="line">      E: <span class="number">4</span>,</span><br><span class="line">      F: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fromdictionaries</span>(<span class="params">origin, target = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">flatAssemble</span>(<span class="params">target, key, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (toString.call(value) !== <span class="string">"[object Object]"</span>) &#123;</span><br><span class="line">      target[key] = value;</span><br><span class="line">      <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> value) &#123;</span><br><span class="line">      <span class="keyword">if</span> (value.hasOwnProperty(prop)) &#123;</span><br><span class="line">        flatAssemble(target, key + <span class="string">"."</span> + prop, value[prop]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (toString.call(obj[prop]) === <span class="string">"[object Object]"</span>) &#123;</span><br><span class="line">        flatAssemble(target, prop, obj[prop]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        target[prop] = obj[prop];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fromdictionaries(obj) <span class="comment">// &#123;A: 1, B.A: 2, B.B: 3, C.D.E: 4, C.D.F: 5&#125;</span></span><br></pre></td></tr></table></figure>
+<p>解题思路: 判读 value 是否是对象，如果是的话，把 key 进行拼接, 然后进行递归</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">+ js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/04/29/css-xuanli/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">绚丽的 CSS</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -201,9 +272,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

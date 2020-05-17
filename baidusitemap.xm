@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>//sysy.site/2020/05/16/js-zidian/</loc>
+    <lastmod>2020-05-17</lastmod>
+  </url>  <url>
+    <loc>//sysy.site/2020/04/29/css-xuanli/</loc>
+    <lastmod>2020-05-17</lastmod>
+  </url>  <url>
     <loc>//sysy.site/2020/04/25/css-function/</loc>
     <lastmod>2020-04-28</lastmod>
   </url>  <url>

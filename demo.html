@@ -34,4 +34,20 @@
 			>这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字,这是一行很长很长的文字，这是一行很长很长的文字，这是一行很长很长的文字</div
 		>
 	</body>
+	<script>
+		let o1 = {
+			text: 'o1',
+			fn: function () {
+				console.log(this.text)
+			}
+		}
+		let o3 = {
+			text: 'o3',
+			fn: function () {
+				let f = o1.fn
+				return f()
+			}
+		}
+		console.log(o3.fn())
+	</script>
 </html>

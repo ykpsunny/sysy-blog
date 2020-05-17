@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Sunny的博客">
 <meta property="og:description" content="前言  CSS 中有很多用于表式长度的单位, 比如常见的 px, em, rem等等。单位又分绝对单位与相对单位, 数字与单位之间不能出现空格。如果长度值为 0，则可以省略单位。对于一些 CSS 属性，长度可以是负数。 绝对单位  绝对长度单位是一个固定值, 它反映的是一个真实的物理尺寸, 不会因为其他元素的尺寸变化而变化 px  px是一个绝对单位，但是由于各种设备的 dpi(分辨率) 不同，每">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://q7yhi2vue.bkt.clouddn.com/image/vw-vh.png">
-<meta property="og:image" content="http://q7yhi2vue.bkt.clouddn.com/image/css-center.png">
-<meta property="og:updated_time" content="2020-04-23T14:26:29.345Z">
+<meta property="og:image" content="//sysy.site/assets/blogImg/vw-vh.png">
+<meta property="og:image" content="//sysy.site/assets/blogImg/css-center.png">
+<meta property="og:updated_time" content="2020-05-17T07:50:22.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 中常见的单位">
 <meta name="twitter:description" content="前言  CSS 中有很多用于表式长度的单位, 比如常见的 px, em, rem等等。单位又分绝对单位与相对单位, 数字与单位之间不能出现空格。如果长度值为 0，则可以省略单位。对于一些 CSS 属性，长度可以是负数。 绝对单位  绝对长度单位是一个固定值, 它反映的是一个真实的物理尺寸, 不会因为其他元素的尺寸变化而变化 px  px是一个绝对单位，但是由于各种设备的 dpi(分辨率) 不同，每">
-<meta name="twitter:image" content="http://q7yhi2vue.bkt.clouddn.com/image/vw-vh.png">
+<meta name="twitter:image" content="//sysy.site/assets/blogImg/vw-vh.png">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -164,7 +164,7 @@ var _hmt = _hmt || [];
 <p><strong>vh</strong><br>  表示 Viewpoint Height (视口高度) 百分比。1vh 代表视口高度的 1%。例如，如果视口的高度是 800px, 1vh求得的值为 8px。 </p>
 <p><strong>vmin</strong><br>  表示 vm 和 vh 中较小的那个。</p>
 <p><strong>vmax</strong><br>  表示 vm 和 vh 中较大的那个。</p>
-<p><img src="http://q7yhi2vue.bkt.clouddn.com/image/vw-vh.png" alt="vw-vh"></p>
+<p><img src="/assets/blogImg/vw-vh.png" alt="vw-vh"></p>
 <p>vh 和vw 总是与视口的高度和宽度有关，与之不同的，vmin 和vmax 是与视口宽度和高度的最大值或最小值有关，取决于哪个更大和更小。例如，如果视口的宽为 1440px、高为 660px，10vmin 为 66px, 10vmax 为 144px。</p>
 <p><strong>百分比(%)</strong><br>  CSS中的百分比参照的值不同, 最终计算出来的值也是不同的。</p>
 <ul>
@@ -176,7 +176,7 @@ var _hmt = _hmt || [];
 <p>translateX()的百分比相对于自身的 <code>width + padding + border</code> 来计算<br>translateY()的百分比相对于自身的 <code>height + padding + border</code> 来计算</p>
 <p>巧妙使用<strong>百分比(%)</strong>实现水平垂直居中</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 300px;</span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#f00</span>;</span></span><br><span class="line">    padding: 20px;</span><br><span class="line">    position: relative;</span><br><span class="line">    border: 10px solid black;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="css">  <span class="selector-class">.inner</span> &#123;</span></span><br><span class="line">    width: 50%;</span><br><span class="line">    height: 50%;</span><br><span class="line">    border: 10px solid black;</span><br><span class="line">    padding: 10px;</span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#0ff</span>;</span></span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    top: 50%;</span><br><span class="line">    transform: translate(-50%, -50%);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://q7yhi2vue.bkt.clouddn.com/image/css-center.png" alt="css-center"></p>
+<p><img src="/assets/blogImg/css-center.png" alt="css-center"></p>
 
       
 
@@ -371,11 +371,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">js-array</a>
+                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">+ js</a>
+                <a href="javascript:void(0)" class="js-tag color4">js-array</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -383,7 +383,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -391,7 +391,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">+ js</a>
               </li>
              
               <li class="article-tag-list-item">

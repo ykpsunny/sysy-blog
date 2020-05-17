@@ -40,7 +40,7 @@ tags:
 **vmax**
   表示 vm 和 vh 中较大的那个。
 
-![vw-vh](http://q7yhi2vue.bkt.clouddn.com/image/vw-vh.png)
+![vw-vh](/assets/blogImg/vw-vh.png)
 
 vh 和vw 总是与视口的高度和宽度有关，与之不同的，vmin 和vmax 是与视口宽度和高度的最大值或最小值有关，取决于哪个更大和更小。例如，如果视口的宽为 1440px、高为 660px，10vmin 为 66px, 10vmax 为 144px。
 
@@ -86,4 +86,4 @@ translateY()的百分比相对于自身的 `height + padding + border` 来计算
   </div>
 ```
 
-![css-center](http://q7yhi2vue.bkt.clouddn.com/image/css-center.png)
+![css-center](/assets/blogImg/css-center.png)

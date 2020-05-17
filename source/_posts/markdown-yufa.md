@@ -38,7 +38,7 @@ tags:
   ###### 六级标题
 ```
 **显示效果如下:**
-  ![md-title](http://q7yhi2vue.bkt.clouddn.com/image/md-title.png)
+  ![md-title](/assets/blogImg/md-title.png)
 
 **注意**: `#` 与文本之间要有一个空格。
 
@@ -51,7 +51,7 @@ tags:
   ---
 ```
 **显示效果如下:**
-  ![md-dividing-line](http://q7yhi2vue.bkt.clouddn.com/image/md-dividing-line.png)
+  ![md-dividing-line](/assets/blogImg/md-dividing-line.png)
 
 ### 三、列表
 
@@ -156,7 +156,7 @@ tags:
 ```
 **显示效果如下:**
 
-![md-daimakuai](http://q7yhi2vue.bkt.clouddn.com/image/md-daimakuai.png)
+![md-daimakuai](/assets/blogImg/md-daimakuai.png)
 
 ### 七、插入链接
   `[]` 中放要显示的文字，`()` 中放链接
@@ -187,7 +187,7 @@ tags:
 ### 九、流程图
   使用 mermaid 格式的流程图
 
-  ![md-liuchengtu](http://q7yhi2vue.bkt.clouddn.com/image/md-liuchengtu.png)
+  ![md-liuchengtu](/assets/blogImg/md-liuchengtu.png)
 
 ### 十、图片
   `[]` 中放当图片由于某些原因无法显示时，显示的文字，`()` 中放链接地址，可以相对路径，也可以是绝对路径。

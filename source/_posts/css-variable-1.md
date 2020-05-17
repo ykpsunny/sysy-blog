@@ -139,4 +139,4 @@ div {
 
 目前现代浏览器都支持(IE 除外，毕竟微软都抛弃了 [手动狗头])
 
-![css变量兼容性](http://q7yhi2vue.bkt.clouddn.com/image/css-variable.png)
+![css变量兼容性](/assets/blogImg/css-variable.png)

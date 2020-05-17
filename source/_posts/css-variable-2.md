@@ -19,7 +19,7 @@ tags:
 今天我们要说的就是第三种, 使用 js 修改 css 变量值来达到换肤效果
 
 <!--more-->
-![配图](http://q7yhi2vue.bkt.clouddn.com/image/wood.jpg)
+![配图](/assets/blogImg/wood.jpg)
 
 ``` html
 <style>
@@ -66,7 +66,7 @@ function styleHandle(elem, style) {
 
 #### 二、 条形加载 Loading
 
-![loading bar](http://q7yhi2vue.bkt.clouddn.com/image/loading-bar.gif)
+![loading bar](/assets/blogImg/loading-bar.gif)
 
 一个条形加载 Loading 通常由几条线组成，并且每条线存在不同的时延，通过时间差运行相同的动画，从而产生 loading 效果，估计大部分的同学可能会把 css 写成一下这样。
 
@@ -185,7 +185,7 @@ function styleHandle(elem, style) {
 
 其实思路也比较简单，先对按钮进行布局和着色，然后使用伪元素标记鼠标的位置，定义 `--x` 和 `--y` 表示伪元素在按钮里的坐标位置，通过 js 获取鼠标在按钮上的 offsetLeft 和 offsetTop 分别赋值给 `--x` 和 `--y` ，再对伪元素添加径向渐变的背景颜色。
 
-![hover-button](http://q7yhi2vue.bkt.clouddn.com/image/hover-button.gif)
+![hover-button](/assets/blogImg/hover-button.gif)
 
 第一步: 获取鼠标的位置，计算相对按钮的偏移位置，将坐标存到变量中
 

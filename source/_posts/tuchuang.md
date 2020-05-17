@@ -27,10 +27,10 @@ tags:
 
 由于笔者着的是 Windows 系统，所以介绍 Windows 的 MPic 用法
   1.登录七牛云，创建一个存储空间 (获取空间名)
-  ![mpic-1](http://q7yhi2vue.bkt.clouddn.com/image/mpic-1.png)
+  ![mpic-1](/assets/blogImg/mpic-1.png)
   2.进入个人中心，获取 Access Key 与 Secret Key
-  ![mpic-2](http://q7yhi2vue.bkt.clouddn.com/image/mpic-2.png)
+  ![mpic-2](/assets/blogImg/mpic-2.png)
   3.先点击设置账号，配置账号信息
-  ![mpic-3](http://q7yhi2vue.bkt.clouddn.com/image/mpic-3.png)
+  ![mpic-3](/assets/blogImg/mpic-3.png)
 
   然后就可以愉快的使用图片上传神器了

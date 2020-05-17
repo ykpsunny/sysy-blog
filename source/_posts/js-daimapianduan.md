@@ -8,7 +8,7 @@ tags:
 ---
 
 
-![配图](http://q7yhi2vue.bkt.clouddn.com/image/landscape.jpg)
+![配图](/assets/blogImg/landscape.jpg)
 
 1、**生成长度为 10 的随机 ID**
 
